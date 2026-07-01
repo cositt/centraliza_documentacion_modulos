@@ -36,37 +36,37 @@ plugins:
       lang: es
 
 nav:
-  - Inicio: index.md
+  - Inicio: docs/index.md
   - Setup:
-      - Instalación: setup/installation-order.md
-      - Dependencias: setup/dependencies.md
+      - Instalación: docs/setup/installation-order.md
+      - Dependencias: docs/setup/dependencies.md
   - Módulos:
       - Pagos:
-          - account_payment_mode: modules/payment/account_payment_mode.md
-          - account_payment_order: modules/payment/account_payment_order.md
-          - account_banking_mandate: modules/payment/account_banking_mandate.md
+          - account_payment_mode: docs/modules/payment/account_payment_mode.md
+          - account_payment_order: docs/modules/payment/account_payment_order.md
+          - account_banking_mandate: docs/modules/payment/account_banking_mandate.md
       - SEPA:
-          - account_banking_pain_base: modules/sepa/account_banking_pain_base.md
-          - account_banking_sepa_direct_debit: modules/sepa/account_banking_sepa_direct_debit.md
-          - l10n_es_account_banking_sepa_fsdd: modules/sepa/l10n_es_account_banking_sepa_fsdd.md
+          - account_banking_pain_base: docs/modules/sepa/account_banking_pain_base.md
+          - account_banking_sepa_direct_debit: docs/modules/sepa/account_banking_sepa_direct_debit.md
+          - l10n_es_account_banking_sepa_fsdd: docs/modules/sepa/l10n_es_account_banking_sepa_fsdd.md
       - Reconciliación:
-          - account_reconcile_oca: modules/reconciliation/account_reconcile_oca.md
-          - account_reconcile_analytic_tag: modules/reconciliation/account_reconcile_analytic_tag.md
+          - account_reconcile_oca: docs/modules/reconciliation/account_reconcile_oca.md
+          - account_reconcile_analytic_tag: docs/modules/reconciliation/account_reconcile_analytic_tag.md
       - Extractos:
-          - account_statement_base: modules/statements/account_statement_base.md
-          - account_statement_import_base: modules/statements/account_statement_import_base.md
-          - account_statement_import_file: modules/statements/account_statement_import_file.md
-          - account_statement_import_sheet_file: modules/statements/account_statement_import_sheet_file.md
+          - account_statement_base: docs/modules/statements/account_statement_base.md
+          - account_statement_import_base: docs/modules/statements/account_statement_import_base.md
+          - account_statement_import_file: docs/modules/statements/account_statement_import_file.md
+          - account_statement_import_sheet_file: docs/modules/statements/account_statement_import_sheet_file.md
   - Guías:
-      - Flujo Pagos SEPA: guides/workflow-payment-sepa.md
-      - Reconciliación Bancaria: guides/workflow-bank-reconciliation.md
-      - Importar Extractos: guides/workflow-statement-import.md
+      - Flujo Pagos SEPA: docs/guides/workflow-payment-sepa.md
+      - Reconciliación Bancaria: docs/guides/workflow-bank-reconciliation.md
+      - Importar Extractos: docs/guides/workflow-statement-import.md
       - Ejemplos:
-          - Crear Orden de Pago: guides/examples/create-payment-order.md
-          - Reconciliar Extractos: guides/examples/reconcile-statements.md
-          - Importar CSV: guides/examples/import-csv.md
-  - API: api/models-fields.md
-  - Troubleshooting: troubleshooting.md
+          - Crear Orden de Pago: docs/guides/examples/create-payment-order.md
+          - Reconciliar Extractos: docs/guides/examples/reconcile-statements.md
+          - Importar CSV: docs/guides/examples/import-csv.md
+  - API: docs/api/models-fields.md
+  - Troubleshooting: docs/troubleshooting.md
 
 markdown_extensions:
   - toc:

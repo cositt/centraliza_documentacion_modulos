@@ -1,0 +1,81 @@
+site_name: Centraliza - Documentación Módulos Odoo
+site_description: Documentación completa de módulos de pagos SEPA y reconciliación
+site_author: Centraliza
+site_url: https://cositt.github.io/centraliza_documentacion_modulos/
+
+theme:
+  name: material
+  language: es
+  logo: https://www.odoo.com/web/image/website/1/logo?unique=b6cf0f2
+  favicon: https://www.odoo.com/web/image/website/1/favicon
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.follow
+  palette:
+    - scheme: light
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Modo oscuro
+    - scheme: dark
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+
+plugins:
+  - search:
+      lang: es
+
+nav:
+  - Inicio: index.md
+  - Setup:
+      - Instalación: setup/installation-order.md
+      - Dependencias: setup/dependencies.md
+  - Módulos:
+      - Pagos:
+          - account_payment_mode: modules/payment/account_payment_mode.md
+          - account_payment_order: modules/payment/account_payment_order.md
+          - account_banking_mandate: modules/payment/account_banking_mandate.md
+      - SEPA:
+          - account_banking_pain_base: modules/sepa/account_banking_pain_base.md
+          - account_banking_sepa_direct_debit: modules/sepa/account_banking_sepa_direct_debit.md
+          - l10n_es_account_banking_sepa_fsdd: modules/sepa/l10n_es_account_banking_sepa_fsdd.md
+      - Reconciliación:
+          - account_reconcile_oca: modules/reconciliation/account_reconcile_oca.md
+          - account_reconcile_analytic_tag: modules/reconciliation/account_reconcile_analytic_tag.md
+      - Extractos:
+          - account_statement_base: modules/statements/account_statement_base.md
+          - account_statement_import_base: modules/statements/account_statement_import_base.md
+          - account_statement_import_file: modules/statements/account_statement_import_file.md
+          - account_statement_import_sheet_file: modules/statements/account_statement_import_sheet_file.md
+  - Guías:
+      - Flujo Pagos SEPA: guides/workflow-payment-sepa.md
+      - Reconciliación Bancaria: guides/workflow-bank-reconciliation.md
+      - Importar Extractos: guides/workflow-statement-import.md
+      - Ejemplos:
+          - Crear Orden de Pago: guides/examples/create-payment-order.md
+          - Reconciliar Extractos: guides/examples/reconcile-statements.md
+          - Importar CSV: guides/examples/import-csv.md
+  - API: api/models-fields.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

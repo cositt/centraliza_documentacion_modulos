@@ -2,7 +2,7 @@
 
 Documentación completa de módulos de contabilidad, pagos SEPA y reconciliación bancaria para Odoo 19.
 
-📚 **[Ver Documentación Online](https://cositt.github.io/centraliza_documentacion_modulos/)**
+📚 **[Ver Documentación Online →](https://cositt.github.io/centraliza_documentacion_modulos/)**
 
 ## Módulos Documentados
 

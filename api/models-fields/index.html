@@ -1,0 +1,2267 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación completa de módulos de pagos SEPA y reconciliación">
+      
+      
+        <meta name="author" content="Centraliza">
+      
+      
+        <link rel="canonical" href="https://cositt.github.io/centraliza_documentacion_modulos/api/models-fields/">
+      
+      
+        <link rel="prev" href="../../guides/examples/import-csv/">
+      
+      
+        <link rel="next" href="../../troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://www.odoo.com/web/image/website/1/favicon">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>API - Centraliza - Documentación Módulos Odoo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#referencia-api-modelos-y-campos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Centraliza - Documentación Módulos Odoo" class="md-header__button md-logo" aria-label="Centraliza - Documentación Módulos Odoo" data-md-component="logo">
+      
+  <img src="https://www.odoo.com/web/image/website/1/logo?unique=b6cf0f2" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Centraliza - Documentación Módulos Odoo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../setup/installation-order/" class="md-tabs__link">
+          
+  
+  
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modules/payment/account_payment_mode/" class="md-tabs__link">
+          
+  
+  
+  Módulos
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/workflow-payment-sepa/" class="md-tabs__link">
+          
+  
+  
+  Guías
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Centraliza - Documentación Módulos Odoo" class="md-nav__button md-logo" aria-label="Centraliza - Documentación Módulos Odoo" data-md-component="logo">
+      
+  <img src="https://www.odoo.com/web/image/website/1/logo?unique=b6cf0f2" alt="logo">
+
+    </a>
+    Centraliza - Documentación Módulos Odoo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/installation-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Módulos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Módulos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pagos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/payment/account_payment_mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_payment_mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/payment/account_payment_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_payment_order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/payment/account_banking_mandate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_banking_mandate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEPA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SEPA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/sepa/account_banking_pain_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_banking_pain_base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/sepa/account_banking_sepa_direct_debit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_banking_sepa_direct_debit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/sepa/l10n_es_account_banking_sepa_fsdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    l10n_es_account_banking_sepa_fsdd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconciliación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reconciliación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/reconciliation/account_reconcile_oca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_reconcile_oca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/reconciliation/account_reconcile_analytic_tag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_reconcile_analytic_tag
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extractos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extractos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/statements/account_statement_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_statement_base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/statements/account_statement_import_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_statement_import_base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/statements/account_statement_import_file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_statement_import_file
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/statements/account_statement_import_sheet_file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    account_statement_import_sheet_file
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guías
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/workflow-payment-sepa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flujo Pagos SEPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/workflow-bank-reconciliation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconciliación Bancaria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/workflow-statement-import/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Importar Extractos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/examples/create-payment-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear Orden de Pago
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/examples/reconcile-statements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconciliar Extractos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/examples/import-csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Importar CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#account_payment_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_payment_order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_payment_order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountpaymentorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.payment.order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountpaymentline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.payment.line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_banking_mandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_banking_mandate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_banking_mandate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountbankingmandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.banking.mandate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_reconcile_oca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_reconcile_oca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_reconcile_oca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountreconcilemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.reconcile.model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_statement_import_sheet_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_statement_import_sheet_file
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_statement_import_sheet_file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wizard-accountstatementimportsheetmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard: account.statement.import.sheet.mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujos-xml-sepa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujos XML SEPA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flujos XML SEPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pain-008-domiciliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAIN-008 (Domiciliación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventoshooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos/Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos/Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-init-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-init Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-init-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-init Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transiciones-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transiciones Estado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transiciones Estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#payment-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banking-mandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Banking Mandate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#account_payment_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_payment_order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_payment_order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountpaymentorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.payment.order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountpaymentline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.payment.line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_banking_mandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_banking_mandate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_banking_mandate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountbankingmandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.banking.mandate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_reconcile_oca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_reconcile_oca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_reconcile_oca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-accountreconcilemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo: account.reconcile.model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account_statement_import_sheet_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        account_statement_import_sheet_file
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="account_statement_import_sheet_file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wizard-accountstatementimportsheetmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard: account.statement.import.sheet.mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujos-xml-sepa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujos XML SEPA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flujos XML SEPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pain-008-domiciliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAIN-008 (Domiciliación)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventoshooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos/Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos/Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-init-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-init Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-init-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-init Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transiciones-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transiciones Estado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transiciones Estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#payment-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banking-mandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Banking Mandate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="referencia-api-modelos-y-campos">Referencia API - Modelos y Campos<a class="headerlink" href="#referencia-api-modelos-y-campos" title="Permanent link">#</a></h1>
+<p>Documentación técnica de modelos principales.</p>
+<h2 id="account_payment_order">account_payment_order<a class="headerlink" href="#account_payment_order" title="Permanent link">#</a></h2>
+<h3 id="modelo-accountpaymentorder">Modelo: account.payment.order<a class="headerlink" href="#modelo-accountpaymentorder" title="Permanent link">#</a></h3>
+<p><strong>Campos principales:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">Char</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>               <span class="c1"># PO-2026-001</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">Date</span><span class="p">()</span>                             <span class="c1"># Fecha creación</span>
+<span class="n">payment_type</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">()</span>                <span class="c1"># electronic, manual, check</span>
+<span class="n">journal_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;account.journal&#39;</span><span class="p">)</span>  <span class="c1"># Diario bancario</span>
+<span class="n">mode_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;account.payment.mode&#39;</span><span class="p">)</span> <span class="c1"># Modo pago</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">()</span>                       <span class="c1"># draft, open, done, cancel</span>
+</code></pre></div>
+<p><strong>Métodos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">button_validate</span><span class="p">()</span>               <span class="c1"># Valida orden</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_payment_file</span><span class="p">()</span>         <span class="c1"># Genera XML SEPA</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">reconciliation_mark_done</span><span class="p">()</span>      <span class="c1"># Marca como hecha</span>
+</code></pre></div>
+<h3 id="modelo-accountpaymentline">Modelo: account.payment.line<a class="headerlink" href="#modelo-accountpaymentline" title="Permanent link">#</a></h3>
+<p><strong>Campos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">order_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;account.payment.order&#39;</span><span class="p">)</span>
+<span class="n">partner_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">)</span>
+<span class="n">amount</span> <span class="o">=</span> <span class="n">Float</span><span class="p">()</span>                    <span class="c1"># Importe</span>
+<span class="n">partner_bank_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner.bank&#39;</span><span class="p">)</span>
+<span class="n">move_line_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;account.move.line&#39;</span><span class="p">)</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">Date</span><span class="p">()</span>                       <span class="c1"># Vencimiento</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">Char</span><span class="p">()</span>                  <span class="c1"># Referencia pago</span>
+</code></pre></div>
+<h2 id="account_banking_mandate">account_banking_mandate<a class="headerlink" href="#account_banking_mandate" title="Permanent link">#</a></h2>
+<h3 id="modelo-accountbankingmandate">Modelo: account.banking.mandate<a class="headerlink" href="#modelo-accountbankingmandate" title="Permanent link">#</a></h3>
+<p><strong>Campos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">Char</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>          <span class="c1"># MANDATE-001</span>
+<span class="n">partner_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">partner_bank_id</span> <span class="o">=</span> <span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;res.partner.bank&#39;</span><span class="p">)</span>
+<span class="n">signature_date</span> <span class="o">=</span> <span class="n">Date</span><span class="p">()</span>             <span class="c1"># Fecha firma</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">([(</span><span class="s1">&#39;OOF&#39;</span><span class="p">,</span> <span class="s1">&#39;One off&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;RC&#39;</span><span class="p">,</span> <span class="s1">&#39;Recurrent&#39;</span><span class="p">)])</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">()</span>                 <span class="c1"># draft, valid, expired, cancelled</span>
+<span class="n">unique_mandate_reference</span> <span class="o">=</span> <span class="n">Char</span><span class="p">()</span>   <span class="c1"># UMR SEPA</span>
+</code></pre></div>
+<h2 id="account_reconcile_oca">account_reconcile_oca<a class="headerlink" href="#account_reconcile_oca" title="Permanent link">#</a></h2>
+<h3 id="modelo-accountreconcilemodel">Modelo: account.reconcile.model<a class="headerlink" href="#modelo-accountreconcilemodel" title="Permanent link">#</a></h3>
+<p><strong>Campos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">Char</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rule_type</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">()</span>             <span class="c1"># account_line, invoice</span>
+<span class="n">auto_reconcile</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">()</span>
+<span class="n">matching_fields</span> <span class="o">=</span> <span class="n">Many2many</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Métodos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_reconciliation_matches</span><span class="p">()</span>       <span class="c1"># Calcula matches</span>
+</code></pre></div>
+<h2 id="account_statement_import_sheet_file">account_statement_import_sheet_file<a class="headerlink" href="#account_statement_import_sheet_file" title="Permanent link">#</a></h2>
+<h3 id="wizard-accountstatementimportsheetmapping">Wizard: account.statement.import.sheet.mapping<a class="headerlink" href="#wizard-accountstatementimportsheetmapping" title="Permanent link">#</a></h3>
+<p><strong>Campos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">Char</span><span class="p">()</span>
+<span class="n">column_ids</span> <span class="o">=</span> <span class="n">One2many</span><span class="p">()</span>             <span class="c1"># Mapeo columnas</span>
+<span class="n">mapping_line_ids</span> <span class="o">=</span> <span class="n">One2many</span><span class="p">()</span>       <span class="c1"># Líneas mapeo</span>
+</code></pre></div>
+<p><strong>Ejemplo mapeo CSV:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">mapping_lines</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;csv_column&#39;</span><span class="p">:</span> <span class="s1">&#39;fecha&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;odoo_field&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;csv_column&#39;</span><span class="p">:</span> <span class="s1">&#39;concepto&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;odoo_field&#39;</span><span class="p">:</span> <span class="s1">&#39;reference&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;csv_column&#39;</span><span class="p">:</span> <span class="s1">&#39;debe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;odoo_field&#39;</span><span class="p">:</span> <span class="s1">&#39;amount_debit&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="flujos-xml-sepa">Flujos XML SEPA<a class="headerlink" href="#flujos-xml-sepa" title="Permanent link">#</a></h2>
+<h3 id="pain-008-domiciliacion">PAIN-008 (Domiciliación)<a class="headerlink" href="#pain-008-domiciliacion" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Document</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;urn:iso:std:iso:20022:tech:xsd:pain.008.003.02&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;CstmrDrctDbtInitn&gt;</span>
+<span class="w">    </span><span class="nt">&lt;GrpHdr&gt;</span>
+<span class="w">      </span><span class="nt">&lt;MsgId&gt;</span>MSG-001<span class="nt">&lt;/MsgId&gt;</span>
+<span class="w">      </span><span class="nt">&lt;CreDtTm&gt;</span>2026-06-01T10:00:00<span class="nt">&lt;/CreDtTm&gt;</span>
+<span class="w">      </span><span class="nt">&lt;NbOfTxns&gt;</span>1<span class="nt">&lt;/NbOfTxns&gt;</span>
+<span class="w">      </span><span class="nt">&lt;CtrlSum&gt;</span>500.00<span class="nt">&lt;/CtrlSum&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/GrpHdr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;PmtInf&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PmtInfId&gt;</span>PI-001<span class="nt">&lt;/PmtInfId&gt;</span>
+<span class="w">      </span><span class="nt">&lt;PmtMtd&gt;</span>DD<span class="nt">&lt;/PmtMtd&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Dbtr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Nm&gt;</span>Mi<span class="w"> </span>Empresa<span class="w"> </span>S.L.<span class="nt">&lt;/Nm&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Dbtr&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DbtrAcct&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Id&gt;</span>
+<span class="w">          </span><span class="nt">&lt;IBAN&gt;</span>ES9121000418450200051332<span class="nt">&lt;/IBAN&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/DbtrAcct&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DbtrAgt&gt;</span>
+<span class="w">        </span><span class="nt">&lt;FinInstnId&gt;</span>
+<span class="w">          </span><span class="nt">&lt;BIC&gt;</span>BBVAESMM<span class="nt">&lt;/BIC&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/FinInstnId&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/DbtrAgt&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DrctDbtTxnInf&gt;</span>
+<span class="w">        </span><span class="nt">&lt;PmtId&gt;</span>
+<span class="w">          </span><span class="nt">&lt;InstrId&gt;</span>PROV/2026/001<span class="nt">&lt;/InstrId&gt;</span>
+<span class="w">          </span><span class="nt">&lt;EndToEndId&gt;</span>E2E-001<span class="nt">&lt;/EndToEndId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/PmtId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Cdtr&gt;</span>
+<span class="w">          </span><span class="nt">&lt;Nm&gt;</span>Proveedor<span class="w"> </span>S.L.<span class="nt">&lt;/Nm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Cdtr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;CdtrAcct&gt;</span>
+<span class="w">          </span><span class="nt">&lt;Id&gt;</span>
+<span class="w">            </span><span class="nt">&lt;IBAN&gt;</span>ES9100000000000000000001<span class="nt">&lt;/IBAN&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/Id&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/CdtrAcct&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Amt&gt;</span>
+<span class="w">          </span><span class="nt">&lt;InstdAmt</span><span class="w"> </span><span class="na">Ccy=</span><span class="s">&quot;EUR&quot;</span><span class="nt">&gt;</span>500.00<span class="nt">&lt;/InstdAmt&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Amt&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Mndtinfo&gt;</span>
+<span class="w">          </span><span class="nt">&lt;MndtId&gt;</span>MANDATE-001<span class="nt">&lt;/MndtId&gt;</span>
+<span class="w">          </span><span class="nt">&lt;DtOfSgntr&gt;</span>2026-06-01<span class="nt">&lt;/DtOfSgntr&gt;</span>
+<span class="w">          </span><span class="nt">&lt;AmdmntInd&gt;</span>false<span class="nt">&lt;/AmdmntInd&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Mndtinfo&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/DrctDbtTxnInf&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/PmtInf&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/CstmrDrctDbtInitn&gt;</span>
+<span class="nt">&lt;/Document&gt;</span>
+</code></pre></div>
+<h2 id="eventoshooks">Eventos/Hooks<a class="headerlink" href="#eventoshooks" title="Permanent link">#</a></h2>
+<h3 id="pre-init-hook">Pre-init Hook<a class="headerlink" href="#pre-init-hook" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pre_init_hook</span><span class="p">(</span><span class="n">cr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Antes de instalar&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h3 id="post-init-hook">Post-init Hook<a class="headerlink" href="#post-init-hook" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">post_init_hook</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">registry</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Después de instalar&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h2 id="transiciones-estado">Transiciones Estado<a class="headerlink" href="#transiciones-estado" title="Permanent link">#</a></h2>
+<h3 id="payment-order">Payment Order<a class="headerlink" href="#payment-order" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>Draft
+  ↓
+Open (validación)
+  ↓
+Done (enviado banco)
+  ↓
+Cancelled (anulado)
+</code></pre></div>
+<h3 id="banking-mandate">Banking Mandate<a class="headerlink" href="#banking-mandate" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>Draft
+  ↓
+Valid (autorizado)
+  ↓
+Expired / Cancelled
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
